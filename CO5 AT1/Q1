@@ -1,0 +1,77 @@
+# Coreference Resolution using simple constraints
+
+text = """
+John and Mary went to the park.
+He brought a ball.
+She wanted to play with it.
+The dog chased him excitedly.
+Finally, they all went home.
+"""
+
+# Referring expressions and their possible antecedents
+references = {
+    "He": ["John", "Mary"],
+    "She": ["John", "Mary"],
+    "it": ["ball", "park", "dog"],
+    "him": ["John", "Mary", "dog"],
+    "they": ["John", "Mary", "dog"]
+}
+
+# Apply constraints
+resolved = {
+    "He": "John",          # Gender + number
+    "She": "Mary",         # Gender + number
+    "it": "ball",          # Semantic compatibility
+    "him": "John",         # Gender + semantic compatibility
+    "they": "John + Mary + dog"
+}
+
+print("REFERRING EXPRESSIONS AND RESOLUTION")
+print("---------------------------------------")
+
+for ref, antecedent in resolved.items():
+    print(ref, "->", antecedent)
+
+print("\nCOREFERENCE CHAINS")
+print("------------------")
+print("John -> He -> him")
+print("Mary -> She")
+print("ball -> it")
+print("John + Mary + dog -> they")
+
+print("\nREWRITTEN PARAGRAPH")
+print("-------------------")
+print("John and Mary went to the park.")
+print("John brought a ball.")
+print("Mary wanted to play with the ball.")
+print("The dog chased John excitedly.")
+print("Finally, John, Mary, and the dog all went home.")
+
+
+
+
+Output
+REFERRING EXPRESSIONS AND RESOLUTION
+---------------------------------------
+He -> John
+She -> Mary
+it -> ball
+him -> John
+they -> John + Mary + dog
+
+
+COREFERENCE CHAINS
+------------------
+John -> He -> him
+Mary -> She
+ball -> it
+John + Mary + dog -> they
+
+
+REWRITTEN PARAGRAPH
+-------------------
+John and Mary went to the park.
+John brought a ball.
+Mary wanted to play with the ball.
+The dog chased John excitedly.
+Finally, John, Mary, and the dog all went home.
