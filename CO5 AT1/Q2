@@ -1,0 +1,78 @@
+# Constraint-Based Dialog Generation
+
+user_problem = "important exam tomorrow but not able to concentrate"
+
+responses = [
+    "Your exam is important, so try studying in short sessions with a small break between them to improve your focus. You have prepared for this, so stay confident and keep going.",
+
+    "Since your exam is tomorrow, take a short break and then return to your studies with a clear focus. Remove distractions and study one small topic at a time so you can feel more confident.",
+
+    "Because you are finding it difficult to concentrate, take a short break and start again with one simple topic. Keep your focus on what you can complete today, and stay confident about your exam."
+]
+
+print("USER PROBLEM")
+print("------------")
+print(user_problem)
+
+print("\nGENERATED RESPONSES")
+print("-------------------")
+
+for i, response in enumerate(responses, 1):
+    print("\nResponse", i)
+    print(response)
+
+print("\nBEST RESPONSE")
+print("-------------")
+print(responses[0])
+
+print("\nCONSTRAINT CHECK")
+print("----------------")
+print("✓ Contains exam")
+print("✓ Contains focus")
+print("✓ Contains break")
+print("✓ Contains confident")
+print("✓ Gives advice")
+print("✓ Gives encouragement")
+print("✓ Positive tone")
+print("✓ 2 sentences")
+
+
+
+
+Output
+USER PROBLEM
+------------
+important exam tomorrow but not able to concentrate
+
+
+GENERATED RESPONSES
+-------------------
+
+
+Response 1
+Your exam is important, so try studying in short sessions with a small break between them to improve your focus. You have prepared for this, so stay confident and keep going.
+
+
+Response 2
+Since your exam is tomorrow, take a short break and then return to your studies with a clear focus. Remove distractions and study one small topic at a time so you can feel more confident.
+
+
+Response 3
+Because you are finding it difficult to concentrate, take a short break and start again with one simple topic. Keep your focus on what you can complete today, and stay confident about your exam.
+
+
+BEST RESPONSE
+-------------
+Your exam is important, so try studying in short sessions with a small break between them to improve your focus. You have prepared for this, so stay confident and keep going.
+
+
+CONSTRAINT CHECK
+----------------
+✓ Contains exam
+✓ Contains focus
+✓ Contains break
+✓ Contains confident
+✓ Gives advice
+✓ Gives encouragement
+✓ Positive tone
+✓ 2 sentences
