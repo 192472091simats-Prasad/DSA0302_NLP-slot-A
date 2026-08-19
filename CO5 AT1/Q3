@@ -1,0 +1,117 @@
+# Constraint-Based Word Sense Disambiguation
+
+sentence = "The bank by the river flooded after the storm, but it was saved by quick action."
+
+print("SOURCE SENTENCE")
+print("----------------")
+print(sentence)
+
+# Possible meanings of bank
+bank_meanings = [
+    "Financial institution",
+    "Riverbank"
+]
+
+print("\nPOSSIBLE MEANINGS OF 'BANK'")
+print("---------------------------")
+
+for meaning in bank_meanings:
+    print("-", meaning)
+
+# Apply constraints
+context = ["river", "flooded", "storm"]
+
+print("\nCONSTRAINT ANALYSIS")
+print("-------------------")
+
+print("Context words:", context)
+
+if "river" in context and "flooded" in context:
+    meaning = "Riverbank"
+else:
+    meaning = "Financial institution"
+
+print("\nRESOLVED MEANING")
+print("----------------")
+print("bank =", meaning)
+
+# Predicate logic representation
+print("\nPREDICATE LOGIC REPRESENTATION")
+print("------------------------------")
+
+print("RiverBank(x)")
+print("By(x, River)")
+print("Flood(x)")
+print("Storm(s)")
+print("After(Flood(x), s)")
+print("QuickAction(a)")
+print("Saved(x, a)")
+
+# Target sentence
+print("\nSIMPLE ENGLISH PARAPHRASE")
+print("-------------------------")
+
+print("The riverbank near the river flooded after the storm,")
+print("but quick action saved it from further damage.")
+
+# Discourse structure
+print("\nDISCOURSE TREE")
+print("--------------")
+print("                 CONTRAST")
+print("                /        \\")
+print("               /          \\")
+print("      Clause 1             Clause 2")
+print("         |                     |")
+print("   Bank flooded          Bank was saved")
+print("   after the storm       by quick action")
+
+
+
+Output
+SOURCE SENTENCE
+----------------
+The bank by the river flooded after the storm, but it was saved by quick action.
+
+
+POSSIBLE MEANINGS OF 'BANK'
+---------------------------
+- Financial institution
+- Riverbank
+
+
+CONSTRAINT ANALYSIS
+-------------------
+Context words: ['river', 'flooded', 'storm']
+
+
+RESOLVED MEANING
+----------------
+bank = Riverbank
+
+
+PREDICATE LOGIC REPRESENTATION
+------------------------------
+RiverBank(x)
+By(x, River)
+Flood(x)
+Storm(s)
+After(Flood(x), s)
+QuickAction(a)
+Saved(x, a)
+
+
+SIMPLE ENGLISH PARAPHRASE
+-------------------------
+The riverbank near the river flooded after the storm,
+but quick action saved it from further damage.
+
+
+DISCOURSE TREE
+--------------
+                 CONTRAST
+                /        \
+               /          \
+      Clause 1             Clause 2
+         |                     |
+   Bank flooded          Bank was saved
+   after the storm       by quick action
