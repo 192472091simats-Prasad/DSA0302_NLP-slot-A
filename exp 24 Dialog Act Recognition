@@ -1,0 +1,34 @@
+def dialog_act(sentence):
+    sentence = sentence.lower()
+
+    if sentence.endswith("?"):
+        return "QUESTION"
+
+    if sentence.startswith(("please", "could you", "can you")):
+        return "REQUEST"
+
+    if sentence.startswith(("hello", "hi", "hey")):
+        return "GREETING"
+
+    if sentence.startswith(("thanks", "thank you")):
+        return "THANKING"
+
+    return "STATEMENT"
+
+
+dialog = [
+    "Hello!",
+    "Can you help me?",
+    "Please send the file.",
+    "Thank you."
+]
+
+for sentence in dialog:
+    print(sentence, "->", dialog_act(sentence))
+
+    Output:
+
+Hello! -> GREETING
+Can you help me? -> QUESTION
+Please send the file. -> REQUEST
+Thank you. -> THANKING
